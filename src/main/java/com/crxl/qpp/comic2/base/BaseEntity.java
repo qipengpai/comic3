@@ -8,7 +8,7 @@ public class BaseEntity {
 	public static RandomUtil ran;
 	public static DateUtil date;
 	public Object obj="";
-	public Object obj2="";
+
 
 
 	public Object getObj() {
