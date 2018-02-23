@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crxl.qpp.comic2.dao.UserEntityMapper">
+  <resultMap id="BaseResultMap" type="com.crxl.qpp.comic2.entity.UserEntity">
+    <id column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="endDate" jdbcType="VARCHAR" property="enddate" />
+    <result column="headPortrait" jdbcType="VARCHAR" property="headportrait" />
+    <result column="headimgSize" jdbcType="INTEGER" property="headimgsize" />
+    <result column="headimgurl" jdbcType="VARCHAR" property="headimgurl" />
+    <result column="hobby" jdbcType="VARCHAR" property="hobby" />
+    <result column="implDate" jdbcType="VARCHAR" property="impldate" />
+    <result column="integral" jdbcType="INTEGER" property="integral" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="lastLoginDate" jdbcType="VARCHAR" property="lastlogindate" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="openid" jdbcType="VARCHAR" property="openid" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="platformIndex" jdbcType="VARCHAR" property="platformindex" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="registerDate" jdbcType="VARCHAR" property="registerdate" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="startDate" jdbcType="VARCHAR" property="startdate" />
+    <result column="subscribe" jdbcType="INTEGER" property="subscribe" />
+    <result column="subscribe_time" jdbcType="VARCHAR" property="subscribeTime" />
+    <result column="truePhone" jdbcType="VARCHAR" property="truephone" />
+    <result column="truePhoneDate" jdbcType="VARCHAR" property="truephonedate" />
+    <result column="unionid" jdbcType="VARCHAR" property="unionid" />
+    <result column="userPassword" jdbcType="VARCHAR" property="userpassword" />
+    <result column="usercarid" jdbcType="VARCHAR" property="usercarid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="vipId" jdbcType="VARCHAR" property="vipid" />
+    <result column="deviceId" jdbcType="VARCHAR" property="deviceid" />
+    <result column="systemVersion" jdbcType="VARCHAR" property="systemversion" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userId, birthday, city, country, endDate, headPortrait, headimgSize, headimgurl, 
+    hobby, implDate, integral, language, lastLoginDate, nickname, openid, phone, platformIndex, 
+    province, registerDate, sex, startDate, subscribe, subscribe_time, truePhone, truePhoneDate, 
+    unionid, userPassword, usercarid, username, vipId, deviceId, systemVersion, appid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from userentity
+    where userId = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from userentity
+    where userId = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.crxl.qpp.comic2.entity.UserEntity">
+    insert into userentity (userId, birthday, city, 
+      country, endDate, headPortrait, 
+      headimgSize, headimgurl, hobby, 
+      implDate, integral, language, 
+      lastLoginDate, nickname, openid, 
+      phone, platformIndex, province, 
+      registerDate, sex, startDate, 
+      subscribe, subscribe_time, truePhone, 
+      truePhoneDate, unionid, userPassword, 
+      usercarid, username, vipId, 
+      deviceId, systemVersion, appid
+      )
+    values (#{userid,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{country,jdbcType=VARCHAR}, #{enddate,jdbcType=VARCHAR}, #{headportrait,jdbcType=VARCHAR}, 
+      #{headimgsize,jdbcType=INTEGER}, #{headimgurl,jdbcType=VARCHAR}, #{hobby,jdbcType=VARCHAR}, 
+      #{impldate,jdbcType=VARCHAR}, #{integral,jdbcType=INTEGER}, #{language,jdbcType=VARCHAR}, 
+      #{lastlogindate,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{platformindex,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{registerdate,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{startdate,jdbcType=VARCHAR}, 
+      #{subscribe,jdbcType=INTEGER}, #{subscribeTime,jdbcType=VARCHAR}, #{truephone,jdbcType=VARCHAR}, 
+      #{truephonedate,jdbcType=VARCHAR}, #{unionid,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
+      #{usercarid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{vipid,jdbcType=VARCHAR}, 
+      #{deviceid,jdbcType=VARCHAR}, #{systemversion,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.crxl.qpp.comic2.entity.UserEntity">
+    insert into userentity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="enddate != null">
+        endDate,
+      </if>
+      <if test="headportrait != null">
+        headPortrait,
+      </if>
+      <if test="headimgsize != null">
+        headimgSize,
+      </if>
+      <if test="headimgurl != null">
+        headimgurl,
+      </if>
+      <if test="hobby != null">
+        hobby,
+      </if>
+      <if test="impldate != null">
+        implDate,
+      </if>
+      <if test="integral != null">
+        integral,
+      </if>
+      <if test="language != null">
+        language,
+      </if>
+      <if test="lastlogindate != null">
+        lastLoginDate,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="openid != null">
+        openid,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="platformindex != null">
+        platformIndex,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="registerdate != null">
+        registerDate,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="startdate != null">
+        startDate,
+      </if>
+      <if test="subscribe != null">
+        subscribe,
+      </if>
+      <if test="subscribeTime != null">
+        subscribe_time,
+      </if>
+      <if test="truephone != null">
+        truePhone,
+      </if>
+      <if test="truephonedate != null">
+        truePhoneDate,
+      </if>
+      <if test="unionid != null">
+        unionid,
+      </if>
+      <if test="userpassword != null">
+        userPassword,
+      </if>
+      <if test="usercarid != null">
+        usercarid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="vipid != null">
+        vipId,
+      </if>
+      <if test="deviceid != null">
+        deviceId,
+      </if>
+      <if test="systemversion != null">
+        systemVersion,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="headportrait != null">
+        #{headportrait,jdbcType=VARCHAR},
+      </if>
+      <if test="headimgsize != null">
+        #{headimgsize,jdbcType=INTEGER},
+      </if>
+      <if test="headimgurl != null">
+        #{headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="impldate != null">
+        #{impldate,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="language != null">
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogindate != null">
+        #{lastlogindate,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="platformindex != null">
+        #{platformindex,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null">
+        #{registerdate,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="subscribe != null">
+        #{subscribe,jdbcType=INTEGER},
+      </if>
+      <if test="subscribeTime != null">
+        #{subscribeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="truephone != null">
+        #{truephone,jdbcType=VARCHAR},
+      </if>
+      <if test="truephonedate != null">
+        #{truephonedate,jdbcType=VARCHAR},
+      </if>
+      <if test="unionid != null">
+        #{unionid,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usercarid != null">
+        #{usercarid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="vipid != null">
+        #{vipid,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="systemversion != null">
+        #{systemversion,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.crxl.qpp.comic2.entity.UserEntity">
+    update userentity
+    <set>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        endDate = #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="headportrait != null">
+        headPortrait = #{headportrait,jdbcType=VARCHAR},
+      </if>
+      <if test="headimgsize != null">
+        headimgSize = #{headimgsize,jdbcType=INTEGER},
+      </if>
+      <if test="headimgurl != null">
+        headimgurl = #{headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        hobby = #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="impldate != null">
+        implDate = #{impldate,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        integral = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="language != null">
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogindate != null">
+        lastLoginDate = #{lastlogindate,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="platformindex != null">
+        platformIndex = #{platformindex,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null">
+        registerDate = #{registerdate,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="startdate != null">
+        startDate = #{startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="subscribe != null">
+        subscribe = #{subscribe,jdbcType=INTEGER},
+      </if>
+      <if test="subscribeTime != null">
+        subscribe_time = #{subscribeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="truephone != null">
+        truePhone = #{truephone,jdbcType=VARCHAR},
+      </if>
+      <if test="truephonedate != null">
+        truePhoneDate = #{truephonedate,jdbcType=VARCHAR},
+      </if>
+      <if test="unionid != null">
+        unionid = #{unionid,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        userPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usercarid != null">
+        usercarid = #{usercarid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="vipid != null">
+        vipId = #{vipid,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceid != null">
+        deviceId = #{deviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="systemversion != null">
+        systemVersion = #{systemversion,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        appid = #{appid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.crxl.qpp.comic2.entity.UserEntity">
+    update userentity
+    set birthday = #{birthday,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      endDate = #{enddate,jdbcType=VARCHAR},
+      headPortrait = #{headportrait,jdbcType=VARCHAR},
+      headimgSize = #{headimgsize,jdbcType=INTEGER},
+      headimgurl = #{headimgurl,jdbcType=VARCHAR},
+      hobby = #{hobby,jdbcType=VARCHAR},
+      implDate = #{impldate,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=INTEGER},
+      language = #{language,jdbcType=VARCHAR},
+      lastLoginDate = #{lastlogindate,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      openid = #{openid,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      platformIndex = #{platformindex,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      registerDate = #{registerdate,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      startDate = #{startdate,jdbcType=VARCHAR},
+      subscribe = #{subscribe,jdbcType=INTEGER},
+      subscribe_time = #{subscribeTime,jdbcType=VARCHAR},
+      truePhone = #{truephone,jdbcType=VARCHAR},
+      truePhoneDate = #{truephonedate,jdbcType=VARCHAR},
+      unionid = #{unionid,jdbcType=VARCHAR},
+      userPassword = #{userpassword,jdbcType=VARCHAR},
+      usercarid = #{usercarid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      vipId = #{vipid,jdbcType=VARCHAR},
+      deviceId = #{deviceid,jdbcType=VARCHAR},
+      systemVersion = #{systemversion,jdbcType=VARCHAR},
+      appid = #{appid,jdbcType=VARCHAR}
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>
